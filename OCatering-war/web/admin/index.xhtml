@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:body>
+
+        <ui:composition template="template/commonLayout.xhtml">
+            <ui:define name="content">                
+                <div class="content-wrapper">
+                    <!-- Content Header (Page header) -->
+                    <section class="content-header">
+                        <h1>
+                            Admin List
+                            <small>(Total users under Admin permissions)</small>
+                        </h1>
+                        <h:link outcome="createadm" value="Create"/>
+                    </section>
+
+                    <!-- Main content -->
+                    <section class="content">
+
+                        <!-- Your Page Content Here -->
+                        <p:dataTable value="#{adminManagedBean.listAdm()}" var="item" editable="true" editMode="cell">
+                            <p:column>
+                                <f:facet name="header">Username</f:facet> 
+                                    #{item.adminUs}
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">Email</f:facet> 
+                                    #{item.adminEmail}
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">Status</f:facet> 
+                                <h:graphicImage id="correctImage" value="images/icons8-checkmark-24.png" rendered="#{item.status}"/>
+                                <h:graphicImage id="notCorrectImage" value="images/icons8-delete-24.png" rendered="#{not item.status}"/>
+                            </p:column>
+                            <p:column>
+                                <h:form>
+                                    <h:commandLink action="#{adminManagedBean.findAdm(item.adminUs)}">
+                                        <h:graphicImage value="images/icons8-edit-property-24.png"/>
+                                    </h:commandLink>
+                                </h:form>
+                            </p:column>
+                        </p:dataTable>
+
+                    </section><!-- /.content -->
+                </div><!-- /.content-wrapper -->
+
+                <!-- Main Footer -->
+
+
+                <!-- Control Sidebar -->
+
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
+
+</html>

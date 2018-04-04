@@ -1,0 +1,16 @@
+/* 
+    Created on : Aug 31, 2016, 7:39:29 PM
+    Author     : Lonely
+*/
+//CSS Manager admin
+tr,th,td{}
+table,tbody{margin: auto;}
+tr,td{padding: 1px 40px 1px 40px; border: solid 1px green;}
+th{border: solid 1px #CAE2FA;    background-color: #CAE2FA;}
+tr:hover{background-color: honeydew;}
+h1{text-align: center}
+
+//CSS Insert update
+#h1{text-align: center;}
+#form{width:  30%; margin: auto}
+/*#texta{width: 271px; height: 127px;}*/

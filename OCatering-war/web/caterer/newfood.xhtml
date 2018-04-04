@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:body>
+        <ui:composition template="template/commonLayout.xhtml">
+            <ui:define name="content">                
+                <div class="content-wrapper">
+                    <!-- Content Header (Page header) -->
+                    <section class="content-header">
+                        <h1>
+                            New Food
+                        </h1>
+                    </section>
+
+                    <!-- Main content -->
+                    <section class="content">
+
+                        <!-- Your Page Content Here -->
+                        <h:form id="form" enctype="multipart/form-data">
+                            <h:panelGrid columns="2">
+                                <h:outputLabel value="Name"/>
+                                <p:inputText value="#{menuManagedBean.name}" size="50">
+
+                                </p:inputText>
+
+                                <h:outputLabel value="Description"/>
+                                <p:editor value="#{menuManagedBean.description}" width="440"/>
+
+                                <h:outputLabel value="Category"/>
+                                <p:selectOneMenu value="#{menuManagedBean.category_id}">
+                                    <f:selectItems value="#{menuManagedBean.listC()}" var="cat" itemLabel="#{cat.name}" itemValue="#{cat.catId}"/>
+                                </p:selectOneMenu>
+
+                                <h:outputLabel value="Image"/>
+                                <h:inputFile id="file" value="#{menuManagedBean.file}">
+                                    <f:validator validatorId="fileUploadValidator"/>
+                                </h:inputFile>
+
+                                <h:outputText value=""/>
+                                <p:outputLabel value="#{menuManagedBean.mess}" style="color: red"/>
+
+                                <h:outputText value=""/>
+                                <h:panelGroup>
+                                    <h:commandButton style="background-color: #367fa9;height:40px; font-size: 14px; font-weight: bold; color: white" action="#{menuManagedBean.createFood()}" value="Next" />  &nbsp;
+                                    <h:commandButton style="background-color: #367fa9;height:40px; font-size: 14px; font-weight: bold; color: white" action="menu" value="Back" />
+                                </h:panelGroup>
+                            </h:panelGrid>
+                        </h:form>
+
+                    </section><!-- /.content -->
+                </div><!-- /.content-wrapper -->
+
+                <!-- Main Footer -->
+
+
+                <!-- Control Sidebar -->
+
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
+</html>
+

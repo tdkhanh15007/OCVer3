@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Login</title>
+        <link href="css/login.css" rel="stylesheet" type="text/css" />
+
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <fieldset>
+
+                    <legend>Log in</legend>
+
+                    <label for="login">Username</label>
+                    <h:inputText id="login" value="#{adminManagedBean1.admin_us}" required="true" requiredMessage="Username is required"/>
+                    <div class="clear"></div>
+                    <label for="password">Password</label>
+                    <h:inputSecret id="password" value="#{adminManagedBean1.password}" required="true" requiredMessage="Password is required"/>
+                    <div class="clear"></div>
+                    <div class="clear"></div><br />
+
+                    <h:commandButton type="submit" style="margin: -20px 0 0 287px;" class="button" action="#{adminManagedBean1.login()}" value="Log in"/>	
+                </fieldset>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+

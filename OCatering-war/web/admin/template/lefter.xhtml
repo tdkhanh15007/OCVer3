@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+          
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <body>
+        <ui:composition>	
+            <aside class="main-sidebar">
+
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+
+                    <!-- Sidebar user panel (optional) -->
+                    <div class="user-panel">
+                        <div class="pull-left image">
+                            <h:graphicImage library="img" name="user2-160x160.jpg" class="img-circle" alt="User Image"/>
+                        </div>
+                        <div class="pull-left info">
+                            <p>Tran Duy Khanh</p>
+                            <!-- Status -->
+                            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                        </div>
+                    </div>
+
+                    <!-- search form (Optional) -->
+                    
+                    <!-- /.search form -->
+
+                    <!-- Sidebar Menu -->
+                    <ul class="sidebar-menu">
+                        <li class="header">Menu</li>
+                        <!-- Optionally, you can add icons to the links -->
+                        <li class="active"><a href="index.xhtml"><i class="fa fa-link"></i> <span>Administrator manage</span></a></li>
+                        <li><a href="caterer.xhtml"><i class="fa fa-link"></i> <span>Caterer manage</span></a></li>
+                        <li><a href="supplier.xhtml"><i class="fa fa-link"></i> <span>Supplier manage</span></a></li>
+                        <li><a href="worker.xhtml"><i class="fa fa-link"></i> <span>Human Resources</span></a></li>
+                        <li class="treeview">
+                            <a href="#"><i class="fa fa-link"></i> <span>Rating</span> <i class="fa fa-angle-left pull-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a href="topseller.xhtml">Best seller</a></li>
+                                <li><a href="topfav.xhtml">Best Favorite Caterer</a></li>
+                                <li><a href="#">Most selected food</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#"><i class="fa fa-link"></i> <span>Report</span> <i class="fa fa-angle-left pull-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a href="#">Income</a></li>
+                                <li><a href="#">Spend</a></li>
+                                <li><a href="#">Customer Order</a></li>
+                                <li><a href="#">Supplier Order</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><i class="fa fa-link"></i> <span>Logout</span></a></li>
+                    </ul><!-- /.sidebar-menu -->
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+        </ui:composition>
+    </body>
+</html>
+
+

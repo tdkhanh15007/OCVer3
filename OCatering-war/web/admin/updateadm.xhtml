@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:body>
+
+        <ui:composition template="template/commonLayout.xhtml">
+            <ui:define name="content">                
+                <div class="content-wrapper">
+                    <!-- Content Header (Page header) -->
+                    <section class="content-header">
+                        <h1>
+                            Update
+                        </h1>
+                    </section>
+
+                    <!-- Main content -->
+                    <section class="content">
+
+                        <!-- Your Page Content Here -->
+                        <h:form>     
+                            <h:inputHidden value="#{adminManagedBean.adm_us}"/>
+                            <h:panelGrid columns="2">
+                                <h:outputLabel for="admin_email" value="Email"/>
+                                <p:inputText value="#{adminManagedBean.adm_email}"/>
+
+                                <h:outputLabel for="pass1" value="Password"/>
+                                <p:inputText value="#{adminManagedBean.adm_pass}"/>
+                                <h:outputLabel for="pass2" value="Confirm Password"/>
+                                <p:inputText value="#{adminManagedBean.pass2}"/>
+
+                                <h:outputLabel for="admin_stt" value="Status"/>
+                                <p:selectOneRadio value="#{adminManagedBean.status}">
+                                    <f:selectItem itemLabel="Active" itemValue="#{true}" />
+                                    <f:selectItem itemLabel="Disable" itemValue="#{false}" />
+                                </p:selectOneRadio> 
+                                <h:outputText value=""/>
+                                <h:outputText value="#{adminManagedBean.mess}" style="color: red"/>
+                                <h:outputText value=""/>
+                                <h:panelGroup>
+                                    <h:commandButton style="background-color: #367fa9;height:40px; font-size: 14px; font-weight: bold; color: white" action="#{adminManagedBean.updateAdm(adminManagedBean.adm_us)}" value="Update" />  &nbsp;
+                                    <h:commandButton style="background-color: #367fa9;height:40px; font-size: 14px; font-weight: bold; color: white" action="index" value="Back" />
+                                </h:panelGroup>
+                            </h:panelGrid>
+                        </h:form>
+
+                    </section><!-- /.content -->
+                </div><!-- /.content-wrapper -->
+
+                <!-- Main Footer -->
+
+
+                <!-- Control Sidebar -->
+
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
+</html>
+
