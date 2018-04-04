@@ -33,7 +33,7 @@ public interface FoodMatFacadeLocal {
     List<FoodMat> findRange(int[] range);
 
     int count();
-
-    public FoodMat returnFM(int idF, int idM);
+//
+//    public FoodMat returnFM(int idF, int idM);
     
 }

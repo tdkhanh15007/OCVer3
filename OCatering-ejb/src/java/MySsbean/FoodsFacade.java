@@ -51,9 +51,5 @@ public class FoodsFacade extends AbstractFacade<Foods> implements FoodsFacadeLoc
         return f1;
     }      
     
-    @Override
-    public int maxID(){
-        Query q = em.createNativeQuery("SELECT r.food_id FROM Foods");
-        return q.getMaxResults();
-    }
+
 }

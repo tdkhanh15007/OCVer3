@@ -33,6 +33,5 @@ public interface FoodsFacadeLocal {
 
     public List<Foods> listOldFood(String us);
 
-    public int maxID();
     
 }

@@ -34,6 +34,6 @@ public interface MaterialFacadeLocal {
 
     public List<Material> listMat(int foodID);
 
-    public List<Integer> listMatbyName(String name);
+    public List<FoodMat> listMatbyName(String name,int foodID);
     
 }

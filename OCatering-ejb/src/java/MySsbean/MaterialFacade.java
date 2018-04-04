@@ -49,25 +49,22 @@ public class MaterialFacade extends AbstractFacade<Material> implements Material
     }
     
     @Override
-    public List<Integer> listMatbyName(String name) {
+    public List<FoodMat> listMatbyName(String name,int foodID) {
         List<Integer> ls1 = null;
 //        List<Integer> ls2 = null;
-//        List<FoodMat> ls2 = null;
+        List<FoodMat> ls2 = new ArrayList<FoodMat>();
         Query q = em.createQuery("SELECT r.matId FROM Material r WHERE r.name like '%" + name + "%'");
         ls1 = q.getResultList();
-//        for (Integer integer1 : ls1) {
-//            Query q1 = em.createNativeQuery("SELECT w.mat_id FROM FoodMat w where  w.mat_id = " + integer1.intValue()+" and w.food_id = "+1);
-////            System.out.println(integer1.intValue());
-//            if(q1.getResultList().isEmpty()){
-//                ls2.add(integer1.intValue());
-//            }
-//        }
+        for (Integer integer1 : ls1) {
+            Query q1 = em.createQuery("SELECT r FROM FoodMat r WHERE r.foodMatPK.foodId  = " + foodID + " and r.foodMatPK.matId =" + integer1.intValue());
+            ls2.add((FoodMat) q1.getSingleResult());
+        }
 //        ls = q.getResultList();
 //        for (int i = 0; i < ls1.size(); i++) {
 //            q1 = em.createQuery("SELECT f FROM FoodMat f where f.foodMatPK.matId = " + ls1.get(i));            
 //            ls2 = q1.getResultList();
 //        }
-        return ls1;
+        return ls2;
     }
     
 //    @Override

@@ -13,32 +13,45 @@
                     <!-- Content Header (Page header) -->
                     <section class="content-header">
                         <h1>
-                            Cooking recipe
+                            Cooking recipe #{menuManagedBean.id}
                         </h1>
                     </section>
 
                     <!-- Main content -->
                     <section class="content">
                         <!-- Your Page Content Here -->
-                        <h:form>  
+                        <h:form id="f1">
+                            <h:inputHidden value="#{menuManagedBean.id}"/>
                             <h:inputText value="#{menuManagedBean.nameLike}">
-                                <p:ajax event="keyup" update="out" listener="#{menuManagedBean.searchAction}" />
                             </h:inputText>
+                            <h:commandButton value="Search" action="#{menuManagedBean.searchAction()}"/>
                             <br/>
+                        </h:form>
+                        <h:form>
                             <p:dataTable id="out" value="#{menuManagedBean.listFM}" var="item">
                                 <p:column>
-                                    #{menuManagedBean.idtoName(item.material.matId)}
+                                    <f:facet name="header">
+                                        Quant
+                                    </f:facet>
+                                    <h:inputText id="itemQuantity" value="#{item.quantity}"/>
+                                    #{item.quantity}
                                 </p:column>
                                 <p:column>
-                                    <h:inputText value="#{item.quantity}" converterMessage="Quantity must be a number">
-                                        <f:convertNumber type="number"/>
-                                    </h:inputText>
+                                    <f:facet name="header">
+                                        FoodID
+                                    </f:facet>
+                                    #{item.foodMatPK.foodId}
                                 </p:column>
                                 <p:column>
-                                    <h:commandButton style="background-color: #367fa9;height:40px; font-size: 14px; font-weight: bold; color: white" action="#{menuManagedBean.editRecipe(item.material.matId,item.quantity)}" value="Add" />
+                                    <f:facet name="header">
+                                        MatID
+                                    </f:facet>
+                                    #{item.foodMatPK.matId}
                                 </p:column>
-                            </p:dataTable>                                                 
-
+                                <p:column>
+                                    <h:commandButton style="background-color: #367fa9;height:40px; font-size: 14px; font-weight: bold; color: white" action="menu" value="Back" />
+                                </p:column>
+                            </p:dataTable>                                                                            
                         </h:form>
 
                     </section><!-- /.content -->

@@ -58,7 +58,7 @@ public class MenuManagedBean {
     Part file;
     String fileNamed, nameLike = "";
     List<Integer> listIDSearhMat;
-    List<FoodMat> listFM;
+    public List<FoodMat> listFM;
 
     public List<FoodMat> getListFM() {
         return listFM;
@@ -155,10 +155,10 @@ public class MenuManagedBean {
     public List<Material> listM() {
         return materialFacade.findAll();
     }
-
-    public List<FoodMat> listFM() {
-        return foodMatFacade.findAll();
-    }
+//
+//    public List<FoodMat> listFM() {
+//        return foodMatFacade.findAll();
+//    }
 
     /**
      * Creates a new instance of MenuManagedBean
@@ -201,6 +201,7 @@ public class MenuManagedBean {
                     testID = foods1.getFoodId();
                 }
             }
+            id=testID;
             List<Material> listMat = materialFacade.findAll();
 ////            
 //            System.out.println(listfood.get(listfood.lastIndexOf(listfood)));
@@ -218,29 +219,12 @@ public class MenuManagedBean {
         }
     }
 
-    public String editRecipe(int matID, double quantity) {
-        int foodID = foodsFacade.maxID();
-        FoodMat fm = foodMatFacade.returnFM(foodID, matID);
-        fm.setQuantity(quantity);
-        foodMatFacade.edit(fm);
-        searchAction();
-        return "recipe";
+    public void action22(int id1,int id2){
+        System.out.println(id1+" met "+id2);
     }
 
     public void searchAction() {
-        int foodID = foodsFacade.maxID();
-//        List<Foods> listFood = foodsFacade.findAll();
-//        for (Foods foods1 : listFood) {
-//            if (testID < foods1.getFoodId()) {
-//                testID = foods1.getFoodId();
-//            }
-//        }
-        listIDSearhMat = materialFacade.listMatbyName(nameLike);
-        listFM = new ArrayList<FoodMat>();
-        for (Integer integer1 : listIDSearhMat) {
-            FoodMat fm = foodMatFacade.returnFM(foodID, integer1.intValue());
-            listFM.add(fm);
-        }
+        listFM = materialFacade.listMatbyName(nameLike, id);        
     }
 
     public String idtoName(int id) {

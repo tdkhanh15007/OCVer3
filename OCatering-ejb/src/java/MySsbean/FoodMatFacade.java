@@ -38,10 +38,10 @@ public class FoodMatFacade extends AbstractFacade<FoodMat> implements FoodMatFac
         super(FoodMat.class);
     }
 
-    @Override
-    public FoodMat returnFM(int matID,int foodID) {
-        Query q = em.createQuery("SELECT r FROM FoodMat r WHERE r.foodMatPK.foodId  = " + matID + " and r.foodMatPK.matId =" + foodID);
-        return (FoodMat) q.getSingleResult();        
-    }
+//    @Override
+//    public FoodMat returnFM(int matID,int foodID) {
+//        Query q = em.createQuery("SELECT r FROM FoodMat r WHERE r.foodMatPK.foodId  = " + matID + " and r.foodMatPK.matId =" + foodID);
+//        return (FoodMat) q.getSingleResult();        
+//    }
 
 }
