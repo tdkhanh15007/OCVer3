@@ -7,36 +7,37 @@
     <h:head>
         <title>Facelet Title</title>
     </h:head>
-    <h:body>
+    <h:body>    
+        <h:form id="f1">
+            <h:inputText value="#{testMngb.key1}"/>
+            <h:commandButton value="#{testMngb.searchAction()}"/>
+        </h:form>
         <h:form>
-            <h:inputText value="#{testMngBean.name}">
-                <p:ajax event="keyup" update="out" listener="#{testMngBean.action1}" />
-            </h:inputText>
-
-            <br/>
-            
-            <h:dataTable id="out" value="#{testMngBean.list3}" var="item">
-                <h:column>
+            <p:dataTable id="out" value="#{menuManagedBean.listFM}" var="item">
+                <p:column>
                     <f:facet name="header">
                         Quant
                     </f:facet>
+                    <h:inputText id="itemQuantity" value="#{item.quantity}"/>
                     #{item.quantity}
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column>
                     <f:facet name="header">
                         FoodID
                     </f:facet>
-                    #{item.foods.foodId}
-                </h:column>
-                <h:column>
+                    #{item.foodMatPK.foodId}
+                </p:column>
+                <p:column>
                     <f:facet name="header">
                         MatID
                     </f:facet>
-                    #{item.material.matId}
-                </h:column>
-            </h:dataTable>
+                    #{item.foodMatPK.matId}
+                </p:column>
+                <p:column>
+                    <h:commandButton action="#{menuManagedBean.action1()}" value="Back"/>
+                </p:column>
+            </p:dataTable>  
         </h:form>
-
     </h:body>
 </html>
 

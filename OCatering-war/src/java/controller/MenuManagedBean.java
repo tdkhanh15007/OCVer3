@@ -212,6 +212,7 @@ public class MenuManagedBean {
             }
             //reset name like to null values
             nameLike = "";
+            searchAction();
             return "recipe";
         } catch (Exception e) {
             mess = "Can not create";
@@ -219,8 +220,8 @@ public class MenuManagedBean {
         }
     }
 
-    public void action22(int id1,int id2){
-        System.out.println(id1+" met "+id2);
+    public String action1(){
+        return "menu";
     }
 
     public void searchAction() {

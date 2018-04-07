@@ -27,32 +27,34 @@
                             <h:commandButton value="Search" action="#{menuManagedBean.searchAction()}"/>
                             <br/>
                         </h:form>
-                        <h:form>
-                            <p:dataTable id="out" value="#{menuManagedBean.listFM}" var="item">
-                                <p:column>
-                                    <f:facet name="header">
-                                        Quant
-                                    </f:facet>
-                                    <h:inputText id="itemQuantity" value="#{item.quantity}"/>
-                                    #{item.quantity}
-                                </p:column>
-                                <p:column>
-                                    <f:facet name="header">
-                                        FoodID
-                                    </f:facet>
-                                    #{item.foodMatPK.foodId}
-                                </p:column>
-                                <p:column>
-                                    <f:facet name="header">
-                                        MatID
-                                    </f:facet>
-                                    #{item.foodMatPK.matId}
-                                </p:column>
-                                <p:column>
-                                    <h:commandButton style="background-color: #367fa9;height:40px; font-size: 14px; font-weight: bold; color: white" action="menu" value="Back" />
-                                </p:column>
-                            </p:dataTable>                                                                            
-                        </h:form>
+
+                        <p:dataTable id="out" value="#{menuManagedBean.listFM}" var="item">
+                            <p:column>
+                                <f:facet name="header">
+                                    Quant
+                                </f:facet>
+                                <h:inputText id="itemQuantity" value="#{item.quantity}"/>
+                                #{item.quantity}
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    FoodID
+                                </f:facet>
+                                #{item.foodMatPK.foodId}
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    MatID
+                                </f:facet>
+                                #{item.foodMatPK.matId}
+                            </p:column>
+                            <p:column>
+                                <h:form id="f2">
+                                    <h:commandButton action="#{menuManagedBean.action1()}" value="Back"/>
+                                </h:form>                                    
+                            </p:column>
+                        </p:dataTable>  
+
 
                     </section><!-- /.content -->
                 </div><!-- /.content-wrapper -->
