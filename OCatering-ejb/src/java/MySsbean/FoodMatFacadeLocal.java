@@ -35,5 +35,7 @@ public interface FoodMatFacadeLocal {
     int count();
 //
 //    public FoodMat returnFM(int idF, int idM);
+
+    public FoodMat returnFM(Material matID, Foods foodID);
     
 }

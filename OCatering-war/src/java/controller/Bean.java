@@ -6,7 +6,10 @@
 package controller;
 
 import MyEntity.FoodMat;
+import MyEntity.Foods;
+import MyEntity.Material;
 import MySsbean.FoodMatFacadeLocal;
+import MySsbean.FoodsFacadeLocal;
 import MySsbean.MaterialFacadeLocal;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -28,7 +31,8 @@ import org.primefaces.event.SelectEvent;
 @ManagedBean
 @RequestScoped
 public class Bean implements Serializable {
-
+    @EJB
+    private FoodsFacadeLocal foodsFacade;
     @EJB
     private FoodMatFacadeLocal foodMatFacade;
     @EJB
@@ -37,9 +41,15 @@ public class Bean implements Serializable {
     private List<FoodMat> foodmats;
     private FoodMat foodmat;
 
-    public void submit(int fID,int mID) {
-        System.out.println(fID+"met"+mID);
-//        System.out.println(foodmat);
+    public String submit(int fID,int mID,double a) {
+        System.out.println(fID+" met:"+mID+" quan:"+a);
+        Foods f1 = foodsFacade.find(fID);
+        Material m1 = materialFacade.find(mID);
+        FoodMat fm1 = foodMatFacade.returnFM(m1, f1);
+        fm1.setQuantity(555);
+        foodMatFacade.edit(fm1);
+        getFoodmats();
+        return "test2";
     }
 
     public List<FoodMat> getFoodmats() {

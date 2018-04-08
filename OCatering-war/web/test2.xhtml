@@ -12,10 +12,10 @@
             <p:dataTable value="#{bean.foodmats}" var="item" selection="#{bean.foodmat}" rowKey="#{item.foodMatPK.matId}">
                 <p:column headerText="Mat id">#{item.foodMatPK.matId}</p:column>
                 <p:column headerText="Food id">#{item.foodMatPK.foodId}</p:column>
-                <p:column headerText="Quantity"><h:outputText  value="#{item.quantity}"/>
+                <p:column headerText="Quantity"><h:inputText value="#{item.quantity}"/>
                 </p:column>
                 <p:column>
-                    <p:commandButton value="Edit" title="Update" action="#{bean.submit(item.foodMatPK.foodId, item.foodMatPK.matId)}"/>
+                    <p:commandButton value="Edit" title="Update" actionListener="#{bean.submit(item.foodMatPK.foodId, item.foodMatPK.matId,item.quantity)}"/>
                 </p:column>                
             </p:dataTable>
 
